@@ -6,7 +6,6 @@ namespace KataTennis
 		public readonly Player PlayerOne;
 		public readonly Player PlayerTwo;
 
-
 		public TennisMatch(ScoreReporter scoreReporter)
 		{
 			_scoreReporter = scoreReporter;
