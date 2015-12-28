@@ -44,7 +44,7 @@ namespace Test
 	public class MatchShould
 	{
 		[Test]
-		public void report_the_score()
+		public void report_a_love_love_score_for_a_starting_match()
 		{
 			var match = new TennisMatch();
 			var console = Substitute.For<Console>();
