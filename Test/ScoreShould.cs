@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using NUnit.Framework;
 
 
@@ -44,17 +45,22 @@ namespace Test
 	public class Score
 	{
 		public int Points { get; private set; }
+		private readonly Dictionary<int, int> _pointAdditions;
 
 		public Score()
 		{
+			_pointAdditions = new Dictionary<int, int>
+			{
+				{ 0, 15 },
+				{ 15, 30 },
+				{ 30, 40 }
+			};
 			Points = 0;
 		}
 
 		public void AddPoint()
 		{
-			if (Points == 30) Points = 40;
-			if (Points == 15) Points = 30;
-			if (Points == 0) Points = 15;
+			Points = _pointAdditions[Points];
 		}
 	}
 }
