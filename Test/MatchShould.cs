@@ -46,8 +46,8 @@ namespace Test
 		[Test]
 		public void report_a_love_love_score_for_a_starting_match()
 		{
-			var match = new TennisMatch();
 			var console = Substitute.For<Console>();
+			var match = new TennisMatch(new ScoreReporter(console));
 
 			match.ReportScore();
 
