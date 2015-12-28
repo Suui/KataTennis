@@ -53,5 +53,17 @@ namespace Test
 
 			console.Received().PrintLine(Arg.Is("love - love"));
 		}
+
+		[Test]
+		public void report_a_fifty_love_score_after_player_one_wins_the_first_ball()
+		{
+			var console = Substitute.For<Console>();
+			var match = new TennisMatch(new ScoreReporter(console));
+
+			match.PlayerOne.WinsBall();
+			match.ReportScore();
+
+			console.Received().PrintLine(Arg.Is("fifty - love"));
+		}
 	}
 }

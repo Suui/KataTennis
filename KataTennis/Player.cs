@@ -22,5 +22,10 @@ namespace KataTennis
 
 			_internalScore = 0;
 		}
+
+		public void WinsBall()
+		{
+			
+		}
 	}
 }

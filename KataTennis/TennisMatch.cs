@@ -3,8 +3,8 @@ namespace KataTennis
 	public class TennisMatch
 	{
 		private readonly ScoreReporter _scoreReporter;
-		private readonly Player PlayerOne;
-		private readonly Player PlayerTwo;
+		public readonly Player PlayerOne;
+		public readonly Player PlayerTwo;
 
 
 		public TennisMatch(ScoreReporter scoreReporter)

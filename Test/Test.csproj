@@ -71,6 +71,7 @@
     <Compile Include="MatchShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreReporterShould.cs" />
+    <Compile Include="ScoreShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
