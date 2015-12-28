@@ -6,9 +6,9 @@ namespace KataTennis
 	public class Player
 	{
 		private readonly Dictionary<int, string> _strigifiedScores;
-		private int _internalScore;
+		private Score _internalScore;
 
-		public string Score => _strigifiedScores[_internalScore];
+		public string Score => _strigifiedScores[_internalScore.Points];
 
 		public Player()
 		{
@@ -20,12 +20,12 @@ namespace KataTennis
 				{ 40, "forty" }
 			};
 
-			_internalScore = 0;
+			_internalScore = new Score();
 		}
 
 		public void WinsBall()
 		{
-			
+			_internalScore.AddPoint();
 		}
 	}
 }
