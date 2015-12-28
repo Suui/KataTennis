@@ -80,15 +80,16 @@ namespace Test
 		{
 			if (Points == 40)
 			{
-				SetAdvantage(true);
+				AddAdvantage();
 				return;
 			}
 			Points = _pointAdditions[Points];
 		}
 
-		private void SetAdvantage(bool value)
+		private void AddAdvantage()
 		{
-			Advantage = value;
+			Advantage = true;
+		}
 		}
 	}
 }
