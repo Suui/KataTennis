@@ -9,6 +9,7 @@ namespace KataTennis
 		public bool Advantage { get; private set; }
 
 		private readonly Dictionary<int, int> _pointAdditions;
+		private readonly Dictionary<int, string> _stringifiedScores;
 
 		public Score()
 		{
@@ -21,6 +22,24 @@ namespace KataTennis
 				{ 15, 30 },
 				{ 30, 40 }
 			};
+
+			_stringifiedScores = new Dictionary<int, string>
+			{
+				{ 0, "love" },
+				{ 15, "fifty" },
+				{ 30, "thirty" },
+				{ 40, "forty" }
+			};
+		}
+
+		private void AddAdvantage()
+		{
+			Advantage = true;
+		}
+
+		private void RemoveAdvantage()
+		{
+			Advantage = false;
 		}
 
 		public void AddPoint()
@@ -33,14 +52,9 @@ namespace KataTennis
 			Points = _pointAdditions[Points];
 		}
 
-		private void AddAdvantage()
+		public override string ToString()
 		{
-			Advantage = true;
-		}
-
-		private void RemoveAdvantage()
-		{
-			Advantage = false;
+			return _stringifiedScores[Points];
 		}
 	}
 }
