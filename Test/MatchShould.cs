@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using KataTennis;
+using NSubstitute;
+using NUnit.Framework;
 
 /**
 	Implementing a tennis Score.
@@ -39,8 +41,17 @@
 namespace Test
 {
 	[TestFixture]
-	public class ScoreReporterShould
+	public class MatchShould
 	{
+		[Test]
+		public void report_the_score()
+		{
+			var match = new TennisMatch();
+			var console = Substitute.For<Console>();
 
+			match.ReportScore();
+
+			console.Received().PrintLine(Arg.Is("love - love"));
+		}
 	}
 }

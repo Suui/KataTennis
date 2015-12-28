@@ -68,11 +68,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ScoreReporterShould.cs" />
+    <Compile Include="MatchShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KataTennis\KataTennis.csproj">
+      <Project>{776ce55a-41c2-465e-9fac-43fb915e4b78}</Project>
+      <Name>KataTennis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
