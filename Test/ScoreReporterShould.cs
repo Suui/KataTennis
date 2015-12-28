@@ -18,6 +18,5 @@ namespace Test
 
 			console.Received().PrintLine(Arg.Is("love - love"));
 		}
-
 	}
 }

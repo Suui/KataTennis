@@ -1,12 +1,26 @@
+using System.Collections.Generic;
+
+
 namespace KataTennis
 {
 	public class Player
 	{
-		public string Score { get; set; }
+		private readonly Dictionary<int, string> _strigifiedScores;
+		private int _internalScore;
+
+		public string Score => _strigifiedScores[_internalScore];
 
 		public Player()
 		{
-			Score = "love";
+			_strigifiedScores = new Dictionary<int, string>
+			{
+				{ 0, "love" },
+				{ 15, "fifty" },
+				{ 30, "thirty" },
+				{ 40, "forty" }
+			};
+
+			_internalScore = 0;
 		}
 	}
 }
