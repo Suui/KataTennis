@@ -90,6 +90,10 @@ namespace Test
 		{
 			Advantage = true;
 		}
+
+		private void RemoveAdvantage()
+		{
+			Advantage = false;
 		}
 	}
 }
