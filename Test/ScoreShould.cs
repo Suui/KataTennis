@@ -27,6 +27,18 @@ namespace Test
 
 			score.Points.Should().Be(30);
 		}
+
+		[Test]
+		public void get_40_when_adding_the_third_point()
+		{
+			var score = new Score();
+
+			score.AddPoint();
+			score.AddPoint();
+			score.AddPoint();
+
+			score.Points.Should().Be(40);
+		}
 	}
 
 	public class Score
@@ -40,7 +52,9 @@ namespace Test
 
 		public void AddPoint()
 		{
-			Points = Points == 15 ? 30 : 15;
+			if (Points == 30) Points = 40;
+			if (Points == 15) Points = 30;
+			if (Points == 0) Points = 15;
 		}
 	}
 }
