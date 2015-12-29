@@ -1,35 +1,39 @@
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 
 
 namespace KataTennis
 {
+	public class Scores
+	{
+		public static Scores Zero = new Scores(0, Fifty, "Zero");
+		public static Scores Fifty = new Scores(15, Thirty, "Fifty");
+		public static Scores Thirty = new Scores(30, Fourty, "Thirty");
+		public static Scores Fourty = new Scores(40, Fourty, "Fourty");
+
+		public Scores NextValue { get; set; }
+		public string Name { get; set; }
+		public int CurrrentPoint { get; set; }
+
+		private Scores(int currrentPoint, Scores nextValue, string name)
+		{
+			NextValue = nextValue;
+			Name = name;
+			CurrrentPoint = currrentPoint;
+		}
+
+		
+	}
 	public class Score
 	{
-		public int Points { get; private set; }
+		public Scores Points { get; private set; }
 		public bool Advantage { get; private set; }
-
-		private readonly Dictionary<int, int> _pointAdditions;
-		private readonly Dictionary<int, string> _stringifiedScores;
 
 		public Score()
 		{
-			Points = 0;
+			Points = Scores.Zero;
 			Advantage = false;
 
-			_pointAdditions = new Dictionary<int, int>
-			{
-				{ 0, 15 },
-				{ 15, 30 },
-				{ 30, 40 }
-			};
-
-			_stringifiedScores = new Dictionary<int, string>
-			{
-				{ 0, "love" },
-				{ 15, "fifty" },
-				{ 30, "thirty" },
-				{ 40, "forty" }
-			};
 		}
 
 		private void AddAdvantage()
@@ -44,17 +48,12 @@ namespace KataTennis
 
 		public void AddPoint()
 		{
-			if (Points == 40)
+			if (Points == Scores.Fifty)
 			{
 				AddAdvantage();
 				return;
 			}
-			Points = _pointAdditions[Points];
-		}
-
-		public override string ToString()
-		{
-			return _stringifiedScores[Points];
+			Points = Points.NextValue;
 		}
 	}
 }
