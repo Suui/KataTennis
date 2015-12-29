@@ -63,7 +63,7 @@ namespace Test
 			match.PlayerOne.WinsBall();
 			match.ReportScore();
 
-			console.Received().PrintLine(Arg.Is("fifty - love"));
+			console.Received().PrintLine(Arg.Is("fifteen - love"));
 		}
 	}
 }

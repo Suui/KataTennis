@@ -6,10 +6,11 @@ namespace KataTennis
 {
 	public class Scores
 	{
-		public static Scores Zero = new Scores(0, Fifty, "Zero");
-		public static Scores Fifty = new Scores(15, Thirty, "Fifty");
-		public static Scores Thirty = new Scores(30, Fourty, "Thirty");
-		public static Scores Fourty = new Scores(40, Fourty, "Fourty");
+		public static Scores Zero = new Scores(0, Fifteen, "love");
+		public static Scores Fifteen = new Scores(15, Thirty, "fifteen");
+		public static Scores Thirty = new Scores(30, Forty, "thirty");
+		public static Scores Forty = new Scores(40, Advantage, "forty");
+		public static Scores Advantage = new Scores(40, Forty, "advantage");
 
 		public Scores NextValue { get; set; }
 		public string Name { get; set; }
@@ -48,12 +49,17 @@ namespace KataTennis
 
 		public void AddPoint()
 		{
-			if (Points == Scores.Fifty)
+			if (Points == Scores.Fifteen)
 			{
 				AddAdvantage();
 				return;
 			}
 			Points = Points.NextValue;
+		}
+
+		public override string ToString()
+		{
+			return Points.Name;
 		}
 	}
 }

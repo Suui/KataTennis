@@ -11,7 +11,7 @@ namespace KataTennis
 
 		public void Report(Player playerOne, Player playerTwo)
 		{
-			if (playerOne.Score.Points == 40 && playerTwo.Score.Points == 40)
+			if (playerOne.Score.Points == Scores.Forty && playerTwo.Score.Points == Scores.Forty)
 				_console.PrintLine("deuce");
 			else
 				_console.PrintLine(playerOne.Score + " - " + playerTwo.Score);
