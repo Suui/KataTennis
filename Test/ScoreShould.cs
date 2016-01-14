@@ -54,5 +54,15 @@ namespace Test
 			score.Points.Should().Be(40);
 			score.Advantage.Should().BeTrue();
 		}
+
+		[Test]
+		public void add_advantage()
+		{
+			var score = new Score();
+
+			score.AddAdvantage();
+
+			score.Advantage.Should().BeTrue();
+		}
 	}
 }

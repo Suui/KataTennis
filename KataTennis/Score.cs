@@ -32,10 +32,7 @@ namespace KataTennis
 			};
 		}
 
-		private void AddAdvantage()
-		{
-			Advantage = true;
-		}
+		public void AddAdvantage() { Advantage = true; }
 
 		private void RemoveAdvantage()
 		{
