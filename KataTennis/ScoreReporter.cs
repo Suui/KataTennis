@@ -12,6 +12,7 @@ namespace KataTennis
 		public void Report(Player playerOne, Player playerTwo)
 		{
 			if (playerOne.Score.Advantage) { _console.PrintLine("advantage - " + playerTwo.Score); }
+			if (playerTwo.Score.Advantage) { _console.PrintLine(playerOne.Score + " - advantage"); }
 
 			if (playerOne.Score.Points == 40 && playerTwo.Score.Points == 40)
 				_console.PrintLine("deuce");
