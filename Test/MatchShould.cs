@@ -65,5 +65,26 @@ namespace Test
 
 			console.Received().PrintLine(Arg.Is("fifty - love"));
 		}
+
+		[Test]
+		public void report_an_advantage_forty_score_after_a_deuce_and_player_one_won_the_ball()
+		{
+			var console = Substitute.For<Console>();
+			var match = new TennisMatch(new ScoreReporter(console));
+
+			match.PlayerOne.WinsBall();
+			match.PlayerOne.WinsBall();
+			match.PlayerOne.WinsBall();
+			match.PlayerTwo.WinsBall();
+			match.PlayerTwo.WinsBall();
+			match.PlayerTwo.WinsBall();
+
+			match.PlayerOne.WinsBall();
+			match.ReportScore();
+			
+			console.Received().PrintLine(Arg.Is("advantage - forty"));
+		}
+
+
 	}
 }
