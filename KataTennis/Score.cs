@@ -34,10 +34,7 @@ namespace KataTennis
 
 		public void AddAdvantage() { Advantage = true; }
 
-		private void RemoveAdvantage()
-		{
-			Advantage = false;
-		}
+		public void RemoveAdvantage() { Advantage = false; }
 
 		public void AddPoint()
 		{

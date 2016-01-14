@@ -64,5 +64,15 @@ namespace Test
 
 			score.Advantage.Should().BeTrue();
 		}
+
+		[Test]
+		public void remove_advantage()
+		{
+			var score = new Score();
+
+			score.RemoveAdvantage();
+
+			score.Advantage.Should().BeFalse();
+		}
 	}
 }
