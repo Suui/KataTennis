@@ -60,7 +60,7 @@ namespace Test
 			var console = Substitute.For<Console>();
 			var match = new TennisMatch(new ScoreReporter(console));
 
-			match.PlayerOne.WinsBall();
+			match.PlayerOneWinsBall();
 			match.ReportScore();
 
 			console.Received().PrintLine(Arg.Is("fifty - love"));
@@ -72,19 +72,37 @@ namespace Test
 			var console = Substitute.For<Console>();
 			var match = new TennisMatch(new ScoreReporter(console));
 
-			match.PlayerOne.WinsBall();
-			match.PlayerOne.WinsBall();
-			match.PlayerOne.WinsBall();
-			match.PlayerTwo.WinsBall();
-			match.PlayerTwo.WinsBall();
-			match.PlayerTwo.WinsBall();
+			match.PlayerOneWinsBall();
+			match.PlayerOneWinsBall();
+			match.PlayerOneWinsBall();
+			match.PlayerTwoWinsBall();
+			match.PlayerTwoWinsBall();
+			match.PlayerTwoWinsBall();
 
-			match.PlayerOne.WinsBall();
+			match.PlayerOneWinsBall();
 			match.ReportScore();
 			
 			console.Received().PrintLine(Arg.Is("advantage - forty"));
 		}
 
+		[Test]
+		public void report_a_deuce_after_a_player_loses_an_advantage()
+		{
+			var console = Substitute.For<Console>();
+			var match = new TennisMatch(new ScoreReporter(console));
 
+			match.PlayerOneWinsBall();
+			match.PlayerOneWinsBall();
+			match.PlayerOneWinsBall();
+			match.PlayerTwoWinsBall();
+			match.PlayerTwoWinsBall();
+			match.PlayerTwoWinsBall();
+
+			match.PlayerOneWinsBall();
+			match.PlayerTwoWinsBall();
+			match.ReportScore();
+
+			console.Received().PrintLine(Arg.Is("deuce"));
+		}
 	}
 }

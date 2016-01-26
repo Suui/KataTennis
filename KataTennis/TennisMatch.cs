@@ -3,8 +3,8 @@ namespace KataTennis
 	public class TennisMatch
 	{
 		private readonly ScoreReporter _scoreReporter;
-		public readonly Player PlayerOne;
-		public readonly Player PlayerTwo;
+		private readonly Player PlayerOne;
+		private readonly Player PlayerTwo;
 
 		public TennisMatch(ScoreReporter scoreReporter)
 		{
@@ -16,6 +16,16 @@ namespace KataTennis
 		public void ReportScore()
 		{
 			_scoreReporter.Report(PlayerOne, PlayerTwo);
+		}
+
+		public void PlayerOneWinsBall()
+		{
+			PlayerOne.WinsBall();
+		}
+
+		public void PlayerTwoWinsBall()
+		{
+			PlayerTwo.WinsBall();
 		}
 	}
 }
