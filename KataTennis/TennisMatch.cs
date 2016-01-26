@@ -25,6 +25,11 @@ namespace KataTennis
 
 		public void PlayerTwoWinsBall()
 		{
+			if (_playerOne.HasAdvantage())
+			{
+				_playerOne.RemoveAdvantage();
+				return;
+			}
 			_playerTwo.WinsBall();
 		}
 	}

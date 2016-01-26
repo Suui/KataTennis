@@ -13,5 +13,15 @@ namespace KataTennis
 		{
 			Score.AddPoint();
 		}
+
+		public bool HasAdvantage()
+		{
+			return Score.Advantage;
+		}
+
+		public void RemoveAdvantage()
+		{
+			Score.RemoveAdvantage();
+		}
 	}
 }
